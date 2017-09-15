@@ -36,9 +36,8 @@ $ ng build --dev
 $ mongod
 # started mongoose client in another tab
 $ mongo
-# started the frontend application on `http://localhost:3000/`
-$ node server  or $ nodemon (if you have it installed).
-/////////\\\\\\\\\\
-# Also you can make changes on the frontend application on `http://localhost:4200/`
+# started the frontend application on 'http://localhost:3000/'
+$ node server (to start server) or $ nodemon (if you have it installed).
+# Also you can make changes on the frontend application on 'http://localhost:4200/'
 $ ng serve  
 # you have to rebuild the dist folder when u make changes to Angulars frontend 
