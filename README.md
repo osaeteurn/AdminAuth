@@ -9,8 +9,8 @@ I updgraded to the version below which I am using at the momment until v.5 relea
 - angular-v4.3.1
 - angular/cli-v1.4.3
 
-# Install Node use NPM if you haven't
-# Install Mongodb 
+# Install Node use NPM 
+# Install MongoDB 
 
 # Steps I took
 I downloaded the starter template.
