@@ -5,6 +5,11 @@ This original SB Admin can be download at:
 Github: https://github.com/start-angular/SB-Admin-BS4-Angular-4
 
 This starter project was also generated with [Angular CLI](https://github.com/angular/angular-cli) in the starter template.
+The original SB Admin can be download at:
+
+Github: https://github.com/start-angular/SB-Admin-BS4-Angular-4
+
+This project was also generated with [Angular CLI] @ https://github.com/angular/angular-cli in the starter template.
 I updgraded to the version below which I am using at the momment until v.5 releases:
 - angular-v4.3.1
 - angular/cli-v1.4.3
@@ -36,11 +41,8 @@ $ ng build --dev
 $ mongod
 # started mongoose client in another tab
 $ mongo
-# started the frontend application on `http://localhost:3000/`
-$ node server  or $ nodemon (if you have it installed).
-/////////\\\\\\\\\\
-# Also you can make changes on the frontend application on `http://localhost:4200/`
+# started the frontend application on 'http://localhost:3000/'
+$ node server (to start server) or $ nodemon (if you have it installed).
+# Also you can make changes on the frontend application on 'http://localhost:4200/'
 $ ng serve  
 # you have to rebuild the dist folder when u make changes to Angulars frontend 
-
-

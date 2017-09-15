@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { routerTransition } from '../router.animations';
 import { AuthSignupService } from '../shared/services/auth-signup.service';
 import { ValidateSignupService } from '../shared/services/validate-signup.service';
-import {NgForm} from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
     selector: 'app-signup',
@@ -11,47 +11,37 @@ import {NgForm} from '@angular/forms';
     animations: [routerTransition()]
 })
 export class SignupComponent implements OnInit {
-    name: String;
-    username: String;
-    email: String;
-    password: String;
-    
-    constructor(private validateSignupService: ValidateSignupService) {}
+    form: FormGroup;
+    nameAlert: string = 'Your name is required';
+    emailAlert: string = 'Your email is required';
+    passwordAlert: string = 'Your name is required';
+
+    constructor(private formBuilder: FormBuilder, private authSignupService: AuthSignupService) {
+    }
     
     ngOnInit() {
+        const user = this.form.value;
+        this.form.get('user').valueChanges.subscribe(data => {
+              this.form = this.formBuilder.group({
+                name: [null, [Validators.required]],
+                email: [null, [Validators.required, Validators.email]],
+                password: [null, [Validators.required]]
+                })
+            }
+        )
      }
 
-    onSignupSubmit(ngform){
-        const user = {
-            name: this.name,
-            username: this.username,
-            email: this.email,
-            password: this.password
+    onSignupSubmit(){
+        if (this.form.valid) {
+            this.authSignupService.user(this.form.value).subscribe(data => {
+                console.log(data);
+            })
+        } else {
+            console.log('form not submitted');
         }
-        
-        // ValidateSignup Service 
-        if(!this.validateSignupService.validateSignup(user)){
-            console.log('Please fill in all fields');
-            return false;
-        }
-        // ValidateSignup Service 
-        if(!this.validateSignupService.validateEmail(user.email)){
-            console.log('Please use a vaild email');
-            return false;
-        }
+
     }
 
-    /* 
-    constructor(private SignupAuthService: SignupAuthService) { 
-        this.SignupAuthService.signupUser(user).subscribe(data => {
-            if(data.success){
-                console.log('user authenticated');
-            }else{
-                 console.log('user not authenticated');
-            }
-        });
-    }
- */
 
 
 

@@ -2,27 +2,35 @@
     <div class="row">
         <div class="col-md-4 push-md-4">
             <img class="user-avatar" src="assets/images/logo.png" width="150px" />
-            <h1>SB Admin BS4 Angular4</h1>
-            <form role="form" (ngsubmit)="OnSignupSubmit()">
-                <div class="form-content">
-                    <div class="form-group">
-                        <input type="text" ngModel="name" name="name" class="form-control input-underline input-lg" id="" placeholder="Full Name">
+            <h3>AuthAdmin Sing Up</h3>
+            <form [formGroup]="form" (ngSubmit)="onSignupSubmit(form.value)">
+                    <div class="form-group" [ngClass]="displayFormStyle('name')">
+                        <label for="name" class="control-label required">Name</label>
+                        <input type="text" id="name" class="form-control" formControlName="name" placeholder="Full Name">
+                        <div class="alert" *ngIf="!rForm.controls['name'].valid && rForm.controls['name'].touched">
+                            {{ nameAlert }}
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <input type="text" ngModel="username" name="username" class="form-control input-underline input-lg" id="" placeholder="Username">
+                    <div class="form-group" [ngClass]="displayFormStyle('email')">
+                        <label for="email" class="control-label required">Email</label>
+                        <input type="email" id="email" class="form-control" formControlName="email" placeholder="Email">
+                        <div class="alert" *ngIf="!rForm.controls['email'].valid && rForm.controls['email'].touched">
+                            {{ emailAlert }}
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <input type="text" ngModel="email" name="email"  class="form-control input-underline input-lg" id="" placeholder="Email">
+                    <div class="form-group" [ngClass]="displayFormStyle('password')">
+                            <label for="password" class="control-label required">Password</label>
+                            <input type="password" id="password" class="form-control" formControlName="password" placeholder="Password">
+                        <div class="alert" *ngIf="!rForm.controls['password'].valid && rForm.controls['password'].touched">
+                            {{ passwordAlert }}
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <input type="password" ngModel="pasword" name="password"  class="form-control input-underline input-lg" id="" placeholder="Password">
-                    </div>
-                    <div class="form-group">
-                        <input type="password" class="form-control input-underline input-lg" id="" placeholder="Repeat Password">
-                    </div>
-                </div>
-                <a class="btn rounded-btn" (click)="OnSignuSubmit" [routerLink]="['/dashboard']"> Register </a>&nbsp;
-                <a class="btn rounded-btn" [routerLink]="['/login']"> Log in </a>
+                    <button type="submit" class="btn rounded-btn" [disabled]="!form.valid">
+                    Sign Up
+                    </button>    
+                    <button type="submit" class="btn rounded-btn">
+                    Login
+                    </button>    
             </form>
         </div>
     </div>
