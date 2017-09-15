@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { routerTransition } from '../router.animations';
 import { AuthSignupService } from '../shared/services/auth-signup.service';
 import { ValidateSignupService } from '../shared/services/validate-signup.service';
+import {NgForm} from '@angular/forms';
 
 @Component({
     selector: 'app-signup',
@@ -20,7 +21,7 @@ export class SignupComponent implements OnInit {
     ngOnInit() {
      }
 
-    onSignupSubmit(){
+    onSignupSubmit(ngform){
         const user = {
             name: this.name,
             username: this.username,

@@ -1,57 +1,46 @@
-# SB Admin rewritten in Angular4 and Bootstrap 4
+# AuthAdmin is a project I'm tinkering around with using SB Admin 4 Template and a Login system with the MEAN Stack
 
-Simple Dashboard Admin App built using Angular 4 and Bootstrap 4
+This original SB Admin can be download at:
 
-This project is a port of the famous Free Admin Bootstrap Theme [SB Admin v4.0](http://startbootstrap.com/template-overviews/sb-admin-2/) to Angular4 Theme.
+Github: https://github.com/start-angular/SB-Admin-BS4-Angular-4
 
-Powered by [StartAngular](http://startangular.com/) & [StrapUI](http://strapui.com/)
+This starter project was also generated with [Angular CLI](https://github.com/angular/angular-cli) in the starter template.
+I updgraded to the version below which I am using at the momment until v.5 releases:
+- angular-v4.3.1
+- angular/cli-v1.4.3
 
-## [Demo](http://rawgit.com/start-angular/SB-Admin-BS4-Angular-4/master/dist/)
+# Install Node use NPM
+# Install Mongodb
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0.
+# Steps I took
+I downloaded the starter template.
+- CD to folder 
+- $ npm install
+- then npm installed --save the following to my packages:
 
-### Introduction
-Provides fast, reliable and extensible starter for the development of Angular projects.
+other dependencies and versions I added:
+- "mongodb": "^2.2.31"
+- "mongoose": "^4.11.11"
+- "express": "^4.15.4"
+- "passport": "^0.4.0"
+- "passport-jwt": "^3.0.0"
+- "jsonwebtoken": "^8.0.1"
+- "bcryptjs": "^2.4.3"
+- "body-parser": "^1.18.1"
+- "core-js": "^2.4.1"
+- "cors": "^2.8.4"
 
-`sb-admin-bs4-angular4` provides the following features:
-- Developed using boostrap-v4.0.0-alpha.6
-- angular-v4.2.4
-- angular/cli-v1.1.3
-- Following the best practices.
-- Ahead-of-Time compilation support.
-- Official Angular i18n support.
-- Production and development builds.
-- Tree-Shaking production builds.
+# output Angular Application to `dist` folder
+$ ng build --dev
+# started mongodb server in another tab
+$ mongod
+# started mongoose client in another tab
+$ mongo
+# started the frontend application on `http://localhost:3000/`
+$ node server  or $ nodemon (if you have it installed).
+/////////\\\\\\\\\\
+# Also you can make changes on the frontend application on `http://localhost:4200/`
+$ ng serve  
+# you have to rebuild the dist folder when u make changes to Angulars frontend 
 
-### How to start
-**Note** that this seed project requires  **node >=v6.9.0 and npm >=3**.
 
-In order to start the project use:
-```bash
-$ git clone git@github.com:start-angular/SB-Admin-BS4-Angular-4.git
-$ cd SB-Admin-BS4-Angular-4
-# install the project's dependencies
-$ npm install
-# watches your files and uses livereload by default run `npm start` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-$ npm start
-# prod build, will output the production application in `dist`
-# the produced code can be deployed (rsynced) to a remote server
-$ npm run build
-```
-
-### Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive/pipe/service/class/module`.
-
-### Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-### Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
-
-### Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).

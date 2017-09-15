@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { SignupRoutingModule } from './signup-routing.module';
 import { SignupComponent } from './signup.component';
 import { AuthSignupService } from '../shared/services/auth-signup.service';
+import { ValidateSignupService } from '../shared/services/validate-signup.service';
 
 @NgModule({
   imports: [
@@ -11,6 +12,6 @@ import { AuthSignupService } from '../shared/services/auth-signup.service';
     SignupRoutingModule
   ],
   declarations: [SignupComponent],
-  providers: [AuthSignupService]
+  providers: [AuthSignupService, ValidateSignupService]
 })
 export class SignupModule { }
