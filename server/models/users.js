@@ -36,6 +36,11 @@ module.exports.getUserByUsername = function(username, callback) {
     User.findOne(query, callback);
 }
 
+//Export function to query user by Email
+module.exports.getUserByEmail = function(email, callback) {
+    const query = {email: email};
+    User.findOne(query, callback);
+}
 //Export function to add User with bcrypt hashed from DB
 module.exports.addUser = (newUser, callback) => {
     //hashing password with bcrypt

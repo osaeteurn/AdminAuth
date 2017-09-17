@@ -3,7 +3,7 @@
         <div class="col-md-4 push-md-4">
             <img src="assets/images/logo.png" width="150px" class="user-avatar" />
             <h3>AuthAdmin Login</h3>
-            <form  formGroup]="form" (ngSubmit)="onLoggedin()">
+            <form  [formGroup]="form" (ngSubmit)="onLoggedin()">
                     <div class="form-group">
                         <label for="email" class="control-label required">Email</label>
                         <input type="email" id="email" class="form-control" formControlName="email" placeholder="Email">

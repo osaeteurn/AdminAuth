@@ -25,13 +25,13 @@ router.post('/signup', (req, res, next) => {
 
 // Authenticate
 router.post('/authenticate', (req, res, next) => {
-    const username = req.body.username;
+    const email = req.body.email;
     const password = req.body.password;
         
-    User.getUserByUsername(username, (err, user) => {
+    User.getUserByEmail(email, (err, user) => {
         if(err) throw err;
         if(!user){
-            return res.json({success: false, msg: 'User does not exist'});
+            return res.json({success: false, msg: 'User Email does not exist'});
         }
 
         User.comparePassword(password, user.password, (err, isMatch) => {
@@ -55,8 +55,6 @@ router.post('/authenticate', (req, res, next) => {
                     token: 'myJWT '+token,
                     user: {
                         id: user._id,
-                        name: user.name,
-                        username: user.username,
                         email: user.email
                     }
                 });

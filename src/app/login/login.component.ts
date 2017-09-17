@@ -25,9 +25,9 @@ export class LoginComponent implements OnInit {
 
     onLoggedin() {
        let user: any;
-                  console.log(this.form.value);
+           console.log(this.form.value);
        this.authSignupService.authenticateUser(user).subscribe(data => {
-           console.log(data);
+           console.log(user);
        })
     }
 
