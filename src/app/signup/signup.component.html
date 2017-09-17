@@ -2,33 +2,28 @@
     <div class="row">
         <div class="col-md-4 push-md-4">
             <img class="user-avatar" src="assets/images/logo.png" width="150px" />
-            <h3>AuthAdmin Sing Up</h3>
-            <form [formGroup]="form" (ngSubmit)="onSignupSubmit(form.value)">
-                    <div class="form-group" [ngClass]="displayFormStyle('name')">
+            <h3>AuthAdmin Sign Up</h3>
+            <form [formGroup]="form" (ngSubmit)="onSignupSubmit(user)">
+                    <div class="form-group">
                         <label for="name" class="control-label required">Name</label>
                         <input type="text" id="name" class="form-control" formControlName="name" placeholder="Full Name">
-                        <div class="alert" *ngIf="!rForm.controls['name'].valid && rForm.controls['name'].touched">
-                            {{ nameAlert }}
-                        </div>
+    
                     </div>
-                    <div class="form-group" [ngClass]="displayFormStyle('email')">
+                    <div class="form-group">
                         <label for="email" class="control-label required">Email</label>
                         <input type="email" id="email" class="form-control" formControlName="email" placeholder="Email">
-                        <div class="alert" *ngIf="!rForm.controls['email'].valid && rForm.controls['email'].touched">
-                            {{ emailAlert }}
-                        </div>
+                       
                     </div>
-                    <div class="form-group" [ngClass]="displayFormStyle('password')">
+                    <div class="form-group">
                             <label for="password" class="control-label required">Password</label>
                             <input type="password" id="password" class="form-control" formControlName="password" placeholder="Password">
-                        <div class="alert" *ngIf="!rForm.controls['password'].valid && rForm.controls['password'].touched">
-                            {{ passwordAlert }}
-                        </div>
+                   
                     </div>
                     <button type="submit" class="btn rounded-btn" [disabled]="!form.valid">
                     Sign Up
                     </button>    
-                    <button type="submit" class="btn rounded-btn">
+                  
+                    <button type="submit" class="btn rounded-btn" [routerLink]="['/login']">
                     Login
                     </button>    
             </form>

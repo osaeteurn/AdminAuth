@@ -13,6 +13,12 @@ export class AuthSignupService {
     return this.http.post('http://localhost:3000/users/signup', user, {headers: headers})
     .map(res => res.json);
   }
+    authenticateUser(user){
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    return this.http.post('http://localhost:3000/users/authenticate', user, {headers: headers})
+    .map(res => res.json);
+  }
 
   constructor(private http: Http) {}  
 }
