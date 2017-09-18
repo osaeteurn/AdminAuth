@@ -26,7 +26,7 @@ var SignupRoutingModule = (function () {
     return SignupRoutingModule;
 }());
 SignupRoutingModule = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["M" /* NgModule */])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
         imports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* RouterModule */].forChild(routes)],
         exports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* RouterModule */]]
     })
@@ -39,7 +39,7 @@ SignupRoutingModule = __decorate([
 /***/ "../../../../../src/app/signup/signup.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"login-page\" [@routerTransition]>\n    <div class=\"row\">\n        <div class=\"col-md-4 push-md-4\">\n            <img class=\"user-avatar\" src=\"assets/images/logo.png\" width=\"150px\" />\n            <h3>AuthAdmin Sign Up</h3>\n            <form [formGroup]=\"form\" (ngSubmit)=\"onSignupSubmit(user)\">\n                    <div class=\"form-group\">\n                        <label for=\"name\" class=\"control-label required\">Name</label>\n                        <input type=\"text\" id=\"name\" class=\"form-control\" formControlName=\"name\" placeholder=\"Full Name\">\n    \n                    </div>\n                    <div class=\"form-group\">\n                        <label for=\"email\" class=\"control-label required\">Email</label>\n                        <input type=\"email\" id=\"email\" class=\"form-control\" formControlName=\"email\" placeholder=\"Email\">\n                       \n                    </div>\n                    <div class=\"form-group\">\n                            <label for=\"password\" class=\"control-label required\">Password</label>\n                            <input type=\"password\" id=\"password\" class=\"form-control\" formControlName=\"password\" placeholder=\"Password\">\n                   \n                    </div>\n                    <button type=\"submit\" class=\"btn rounded-btn\" [disabled]=\"!form.valid\">\n                    Sign Up\n                    </button>    \n                  \n                    <button class=\"btn rounded-btn\" [routerLink]=\"['/login']\">\n                    Login\n                    </button>    \n            </form>\n        </div>\n    </div>\n</div>\n"
+module.exports = "<div class=\"login-page\" [@routerTransition]>\n    <div class=\"row\">\n        <div class=\"col-md-4 push-md-4\">\n            <img class=\"user-avatar\" src=\"assets/images/logo.png\" width=\"150px\" />\n            <h3>AuthAdmin Sign Up</h3>\n            <form [formGroup]=\"form\" (ngSubmit)=\"onSignupSubmit()\">\n                    <div class=\"form-group\">\n                        <label for=\"name\" class=\"control-label required\">Name</label>\n                        <input type=\"text\" id=\"name\" class=\"form-control\" formControlName=\"name\" placeholder=\"Full Name\">\n    \n                    </div>\n                    <div class=\"form-group\">\n                        <label for=\"email\" class=\"control-label required\">Email</label>\n                        <input type=\"email\" id=\"email\" class=\"form-control\" formControlName=\"email\" placeholder=\"Email\">\n                       \n                    </div>\n                    <div class=\"form-group\">\n                            <label for=\"password\" class=\"control-label required\">Password</label>\n                            <input type=\"password\" id=\"password\" class=\"form-control\" formControlName=\"password\" placeholder=\"Password\">\n                   \n                    </div>\n                    <button type=\"submit\" class=\"btn rounded-btn\" [disabled]=\"!form.valid\">\n                    Sign Up\n                    </button>    \n                  \n                    <button class=\"btn rounded-btn\" [routerLink]=\"['/login']\">\n                    Login\n                    </button>    \n            </form>\n        </div>\n    </div>\n</div>\n"
 
 /***/ }),
 
@@ -87,12 +87,9 @@ var SignupComponent = (function () {
     function SignupComponent(formBuilder, authSignupService) {
         this.formBuilder = formBuilder;
         this.authSignupService = authSignupService;
-        this.nameAlert = 'Your name is required';
-        this.emailAlert = 'Your email is required';
-        this.passwordAlert = 'Your name is required';
     }
     SignupComponent.prototype.ngOnInit = function () {
-        var user = this.form = this.formBuilder.group({
+        this.form = this.formBuilder.group({
             name: [null, [__WEBPACK_IMPORTED_MODULE_3__angular_forms__["f" /* Validators */].required]],
             email: [null, [__WEBPACK_IMPORTED_MODULE_3__angular_forms__["f" /* Validators */].required, __WEBPACK_IMPORTED_MODULE_3__angular_forms__["f" /* Validators */].email]],
             password: [null, [__WEBPACK_IMPORTED_MODULE_3__angular_forms__["f" /* Validators */].required]]
@@ -111,7 +108,7 @@ var SignupComponent = (function () {
     return SignupComponent;
 }());
 SignupComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-signup',
         template: __webpack_require__("../../../../../src/app/signup/signup.component.html"),
         styles: [__webpack_require__("../../../../../src/app/signup/signup.component.scss")],
@@ -155,7 +152,7 @@ var SignupModule = (function () {
     return SignupModule;
 }());
 SignupModule = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["M" /* NgModule */])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
         imports: [
             __WEBPACK_IMPORTED_MODULE_1__angular_common__["b" /* CommonModule */],
             __WEBPACK_IMPORTED_MODULE_3__signup_routing_module__["a" /* SignupRoutingModule */],

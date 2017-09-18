@@ -14,18 +14,14 @@ import { Observable } from 'rxjs';
 
 export class SignupComponent implements OnInit {
     form: FormGroup;
-    nameAlert: string = 'Your name is required';
-    emailAlert: string = 'Your email is required';
-    passwordAlert: string = 'Your name is required';
-
     constructor(private formBuilder: FormBuilder, 
     private authSignupService: AuthSignupService) {}
     
     ngOnInit() {
-    const user = this.form = this.formBuilder.group({
-                name: [null, [Validators.required]],
-                email: [null, [Validators.required, Validators.email]],
-                password: [null, [Validators.required]]
+         this.form = this.formBuilder.group({
+            name: [null, [Validators.required]],
+            email: [null, [Validators.required, Validators.email]],
+            password: [null, [Validators.required]]
                 })
             }
 

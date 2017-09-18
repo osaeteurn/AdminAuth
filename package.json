@@ -1,12 +1,11 @@
 {
-    "name": "sb-admin-cli-update",
+    "name": "auth-admin",
     "version": "0.0.0",
     "license": "MIT",
     "scripts": {
         "ng": "ng",
         "start": "node server",
         "build": "ng build --prod",
-        "gitbuild": "ng build --prod --base /start-angular/SB-Admin-BS4-Angular-4/master/dist/",
         "test": "ng test",
         "lint": "ng lint",
         "e2e": "ng e2e"

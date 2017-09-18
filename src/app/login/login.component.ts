@@ -18,20 +18,18 @@ export class LoginComponent implements OnInit {
                 password: [null, [Validators.required]]
                 })
             }
-    constructor(private formBuilder: FormBuilder, 
-    private authSignupService: AuthSignupService) {}
+    constructor(private formBuilder: FormBuilder, private authSignupService: AuthSignupService, private router: Router) {}
     
-
-
-
     onLoggedin() {
         const user = this.form.value;
         if (this.form.valid) {
             this.authSignupService.authenticateUser(user);
-            console.log('user authenticated' + user);
+            console.log('user authenticated');
+            this.router.navigate(['/dashboard']);
+            localStorage.setItem('isLoggedin', 'true');
         } else {
             console.log('error');
+            localStorage.setItem('isLoggedin', 'false');
         }
     }
-
 }
