@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { routerTransition } from '../router.animations';
+import { HttpClient } from '@angular/common/http';
 import { AuthSignupService } from '../shared/services/auth-signup.service' 
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 @Component({
@@ -11,24 +12,26 @@ import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms'
 }) 
 export class LoginComponent implements OnInit {  
     form: FormGroup;
-
-    constructor(private formBuilder: FormBuilder, 
-    private authSignupService: AuthSignupService) {}
-    
     ngOnInit() {
              this.form = this.formBuilder.group({
                 email: [null, [Validators.required, Validators.email]],
                 password: [null, [Validators.required]]
                 })
             }
+    constructor(private formBuilder: FormBuilder, 
+    private authSignupService: AuthSignupService) {}
+    
+
 
 
     onLoggedin() {
-       let user: any;
-           console.log(this.form.value);
-       this.authSignupService.authenticateUser(user).subscribe(data => {
-           console.log(user);
-       })
+        const user = this.form.value;
+        if (this.form.valid) {
+            this.authSignupService.authenticateUser(user);
+            console.log('user authenticated' + user);
+        } else {
+            console.log('error');
+        }
     }
 
 }

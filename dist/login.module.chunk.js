@@ -39,7 +39,7 @@ LoginRoutingModule = __decorate([
 /***/ "../../../../../src/app/login/login.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"login-page\" [@routerTransition]>\n    <div class=\"row\">\n        <div class=\"col-md-4 push-md-4\">\n            <img src=\"assets/images/logo.png\" width=\"150px\" class=\"user-avatar\" />\n            <h3>AuthAdmin Login</h3>\n            <form  [formGroup]=\"form\" (ngSubmit)=\"onLoggedin()\">\n                    <div class=\"form-group\">\n                        <label for=\"email\" class=\"control-label required\">Email</label>\n                        <input type=\"email\" id=\"email\" class=\"form-control\" formControlName=\"email\" placeholder=\"Email\">\n                    </div>\n                    <div class=\"form-group\">\n                        <label for=\"password\" class=\"control-label required\">Password</label>\n                        <input type=\"password\" id=\"password\" class=\"form-control\" formControlName=\"password\" placeholder=\"Password\">\n                    </div>\n                    <button type=\"submit\" class=\"btn rounded-btn\" [disabled]=\"!form.valid\" >\n                    Login\n                    </button> \n                    <button type=\"submit\" class=\"btn rounded-btn\" [routerLink]=\"['/signup']\">\n                    Sign Up\n                    </button>    \n            </form>\n        </div>\n    </div>\n</div>\n"
+module.exports = "<div class=\"login-page\" [@routerTransition]>\n    <div class=\"row\">\n        <div class=\"col-md-4 push-md-4\">\n            <img src=\"assets/images/logo.png\" width=\"150px\" class=\"user-avatar\" />\n            <h3>AuthAdmin Login</h3>\n            <form  [formGroup]=\"form\" (ngSubmit)=\"onLoggedin()\">\n                    <div class=\"form-group\">\n                        <label for=\"email\" class=\"control-label required\">Email</label>\n                        <input type=\"email\" id=\"email\" class=\"form-control\" formControlName=\"email\" placeholder=\"Email\">\n                    </div>\n                    <div class=\"form-group\">\n                        <label for=\"password\" class=\"control-label required\">Password</label>\n                        <input type=\"password\" id=\"password\" class=\"form-control\" formControlName=\"password\" placeholder=\"Password\">\n                    </div>\n                    <button type=\"submit\" class=\"btn rounded-btn\" [disabled]=\"!form.valid\" >\n                    Login\n                    </button> \n                    <button class=\"btn rounded-btn\" [routerLink]=\"['/signup']\">\n                    Sign Up\n                    </button>    \n            </form>\n        </div>\n    </div>\n</div>\n"
 
 /***/ }),
 
@@ -95,11 +95,14 @@ var LoginComponent = (function () {
         });
     };
     LoginComponent.prototype.onLoggedin = function () {
-        var user;
-        console.log(this.form.value);
-        this.authSignupService.authenticateUser(user).subscribe(function (data) {
-            console.log(user);
-        });
+        var user = this.form.value;
+        if (this.form.valid) {
+            this.authSignupService.authenticateUser(user);
+            console.log('user authenticated' + user);
+        }
+        else {
+            console.log('error');
+        }
     };
     return LoginComponent;
 }());

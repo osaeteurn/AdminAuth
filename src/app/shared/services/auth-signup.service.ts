@@ -1,24 +1,26 @@
 import { Injectable } from '@angular/core';
-import { Http, Headers } from '@angular/http';
-import 'rxjs/add/operator/map';
+import { HttpClient } from '@angular/common/http';
+
 
 @Injectable()
 export class AuthSignupService {
-  authToken: any;
-  user: any;
 
   signupUser(user){
-    let headers = new Headers();
-    headers.append('Content-Type', 'application/json');
-    return this.http.post('http://localhost:3000/users/signup', user, {headers: headers})
-    .map(res => res.json);
+   return this.http.post('http://localhost:3000/users/signup', user)
+   .subscribe(data => {
+      console.log(data);
+      error => console.log(error);
+    })
   }
+  
     authenticateUser(user){
-    let headers = new Headers();
-    headers.append('Content-Type', 'application/json');
-    return this.http.post('http://localhost:3000/users/authenticate', user, {headers: headers})
-    .map(res => res.json);
+    return this.http.post('http://localhost:3000/users/authenticate', user)
+    .subscribe(data => {
+      //localStorage.setItem('id_token', data.id_token),
+      console.log(data);
+      error => console.log(error)
+    });
   }
 
-  constructor(private http: Http) {}  
+  constructor(private http: HttpClient) {}  
 }

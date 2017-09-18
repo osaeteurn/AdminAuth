@@ -30,19 +30,13 @@ export class SignupComponent implements OnInit {
             }
 
     onSignupSubmit(){
+        const user = this.form.value;
         if (this.form.valid) {
-                        console.log('form submitted');
-            this.authSignupService.signupUser(this.form.value).subscribe( data => {
-                if (data){
-                    console.log('your are ready to login');
-           
-                } else{
-                    console.log('you are not registered');
-                }
-            });
+            this.authSignupService.signupUser(user);
+            console.log('form submitted');
         } else {
             console.log('form not submitted');
         }
-
     }
 }
+

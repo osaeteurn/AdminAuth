@@ -8,18 +8,15 @@ const UserSchema = mongoose.Schema({
     name: {
         type: String
     },
-    username: {
+    email: {
         type: String,
         required: true
     },
     password: {
         type: String,
         required: true
-    },
-    email: {
-        type: String,
-        required: true
     }
+
 });
 
 // Mongoose User Model
@@ -28,12 +25,6 @@ const User = module.exports = mongoose.model('User', UserSchema);
 //Export function to get user by Id
 module.exports.getUserByID = function(id, callback) {
     User.findById(id, callback);
-}
-
-//Export function to query user by Username
-module.exports.getUserByUsername = function(username, callback) {
-    const query = {username: username};
-    User.findOne(query, callback);
 }
 
 //Export function to query user by Email

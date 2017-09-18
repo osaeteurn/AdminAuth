@@ -39,7 +39,7 @@ SignupRoutingModule = __decorate([
 /***/ "../../../../../src/app/signup/signup.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"login-page\" [@routerTransition]>\n    <div class=\"row\">\n        <div class=\"col-md-4 push-md-4\">\n            <img class=\"user-avatar\" src=\"assets/images/logo.png\" width=\"150px\" />\n            <h3>AuthAdmin Sign Up</h3>\n            <form [formGroup]=\"form\" (ngSubmit)=\"onSignupSubmit(user)\">\n                    <div class=\"form-group\">\n                        <label for=\"name\" class=\"control-label required\">Name</label>\n                        <input type=\"text\" id=\"name\" class=\"form-control\" formControlName=\"name\" placeholder=\"Full Name\">\n    \n                    </div>\n                    <div class=\"form-group\">\n                        <label for=\"email\" class=\"control-label required\">Email</label>\n                        <input type=\"email\" id=\"email\" class=\"form-control\" formControlName=\"email\" placeholder=\"Email\">\n                       \n                    </div>\n                    <div class=\"form-group\">\n                            <label for=\"password\" class=\"control-label required\">Password</label>\n                            <input type=\"password\" id=\"password\" class=\"form-control\" formControlName=\"password\" placeholder=\"Password\">\n                   \n                    </div>\n                    <button type=\"submit\" class=\"btn rounded-btn\" [disabled]=\"!form.valid\">\n                    Sign Up\n                    </button>    \n                  \n                    <button type=\"submit\" class=\"btn rounded-btn\" [routerLink]=\"['/login']\">\n                    Login\n                    </button>    \n            </form>\n        </div>\n    </div>\n</div>\n"
+module.exports = "<div class=\"login-page\" [@routerTransition]>\n    <div class=\"row\">\n        <div class=\"col-md-4 push-md-4\">\n            <img class=\"user-avatar\" src=\"assets/images/logo.png\" width=\"150px\" />\n            <h3>AuthAdmin Sign Up</h3>\n            <form [formGroup]=\"form\" (ngSubmit)=\"onSignupSubmit(user)\">\n                    <div class=\"form-group\">\n                        <label for=\"name\" class=\"control-label required\">Name</label>\n                        <input type=\"text\" id=\"name\" class=\"form-control\" formControlName=\"name\" placeholder=\"Full Name\">\n    \n                    </div>\n                    <div class=\"form-group\">\n                        <label for=\"email\" class=\"control-label required\">Email</label>\n                        <input type=\"email\" id=\"email\" class=\"form-control\" formControlName=\"email\" placeholder=\"Email\">\n                       \n                    </div>\n                    <div class=\"form-group\">\n                            <label for=\"password\" class=\"control-label required\">Password</label>\n                            <input type=\"password\" id=\"password\" class=\"form-control\" formControlName=\"password\" placeholder=\"Password\">\n                   \n                    </div>\n                    <button type=\"submit\" class=\"btn rounded-btn\" [disabled]=\"!form.valid\">\n                    Sign Up\n                    </button>    \n                  \n                    <button class=\"btn rounded-btn\" [routerLink]=\"['/login']\">\n                    Login\n                    </button>    \n            </form>\n        </div>\n    </div>\n</div>\n"
 
 /***/ }),
 
@@ -99,16 +99,10 @@ var SignupComponent = (function () {
         });
     };
     SignupComponent.prototype.onSignupSubmit = function () {
+        var user = this.form.value;
         if (this.form.valid) {
+            this.authSignupService.signupUser(user);
             console.log('form submitted');
-            this.authSignupService.signupUser(this.form.value).subscribe(function (data) {
-                if (data) {
-                    console.log('your are ready to login');
-                }
-                else {
-                    console.log('you are not registered');
-                }
-            });
         }
         else {
             console.log('form not submitted');
