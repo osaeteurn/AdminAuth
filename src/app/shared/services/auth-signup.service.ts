@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 interface UserAuthResponse {
   token: string,
   user: any
@@ -20,9 +20,16 @@ export class AuthSignupService {
     return this.http.post<UserAuthResponse>('http://localhost:3000/users/authenticate', user)
     .subscribe(data => {
       localStorage.setItem(user, data.token),
-      error => console.log(error)
-    });
+      (err: HttpErrorResponse) => {
+        if (err.error instanceof Error){
+          console.log('Client-side Error')
+        } else {
+        console.log('Server-side Error')
+        }
+      }
+    })
   }
+
 
   constructor(private http: HttpClient) {}  
 }
