@@ -10,7 +10,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthGuard } from './shared';
 import { AuthSignupService } from './shared/services/auth-signup.service';
-import { AuthInterceptor } from './shared/services/auth.interceptor';
+import { AuthTokenInterceptor } from './shared/services/authToken.interceptor';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: Http) {
@@ -37,7 +37,7 @@ export function HttpLoaderFactory(http: Http) {
             }
         })
     ],
-    providers: [AuthGuard, AuthSignupService, { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}],
+    providers: [AuthGuard, AuthSignupService, { provide: HTTP_INTERCEPTORS, useClass: AuthTokenInterceptor, multi: true}],
     bootstrap: [AppComponent]
 })
 export class AppModule {
