@@ -24,9 +24,9 @@ export class LoginComponent implements OnInit {
         const user = this.form.value;
         if (this.form.valid) {
             this.authSignupService.authenticateUser(user);
-            console.log('user authenticated');
-            this.router.navigate(['/dashboard']);
             localStorage.setItem('isLoggedin', 'true');
+             console.log('user authenticated');
+            this.router.navigate(['dashboard']);
         } else {
             console.log('error');
             localStorage.setItem('isLoggedin', 'false');

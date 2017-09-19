@@ -56,7 +56,7 @@ app.use('/users', users)
 
 // Main Route
 app.use('/', (req, res) =>{
-     res.sendFile(path.join(__dirname, 'dist/index.html'));
+     res.sendFile(path.join(__dirname, 'dist'));
 });
 
 // Starting Server
