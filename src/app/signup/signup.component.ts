@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { routerTransition } from '../router.animations';
 import { AuthSignupService } from '../shared/services/auth-signup.service';
-import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, FormControl, Validators} from '@angular/forms';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -14,6 +14,7 @@ import { Observable } from 'rxjs';
 
 export class SignupComponent implements OnInit {
     form: FormGroup;
+
     constructor(private formBuilder: FormBuilder, 
     private authSignupService: AuthSignupService) {}
     

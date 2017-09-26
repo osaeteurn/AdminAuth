@@ -12,10 +12,8 @@ import { AuthGuard } from './shared';
 import { AuthSignupService } from './shared/services/auth-signup.service';
 import { AuthTokenInterceptor } from './shared/services/authToken.interceptor';
 
-// AoT requires an exported function for factories
+
 export function HttpLoaderFactory(http: Http) {
-    // for development
-    // return new TranslateHttpLoader(http, '/start-angular/SB-Admin-BS4-Angular-4/master/dist/assets/i18n/', '.json');
     return new TranslateHttpLoader(http, '/assets/i18n/', '.json');
 }
 @NgModule({

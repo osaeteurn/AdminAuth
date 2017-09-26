@@ -5,6 +5,9 @@ const config = require('../../server/config/env');
 
 // Mongoose User Schema
 const UserSchema = mongoose.Schema({
+    id: {
+        type: String    
+    },
     name: {
         type: String
     },
@@ -15,7 +18,10 @@ const UserSchema = mongoose.Schema({
     password: {
         type: String,
         required: true
-    }
+    },
+    role: {
+        type: String
+    },
 
 });
 

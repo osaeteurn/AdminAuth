@@ -11,7 +11,8 @@ router.post('/signup', (req, res, next) => {
     let newUser = new User({
         name: req.body.name,
         email: req.body.email,
-        password: req.body.password
+        password: req.body.password,
+        role: req.body.role
     });
     User.addUser(newUser, (err, user) => { 
         if(err){
@@ -30,7 +31,7 @@ router.post('/authenticate', (req, res, next) => {
     User.getUserByEmail(email, (err, user) => {
         if(err) throw err;
         if(!user){
-            return res.json({success: false, msg: 'User Email does not exist'});
+            return res.sendStatus(403);
         }
 
         User.comparePassword(password, user.password, (err, isMatch) => {
@@ -50,17 +51,13 @@ router.post('/authenticate', (req, res, next) => {
    
                 // response on the frontend sending back user token + object
                 res.json({
-                    success: true,
-                    token: 'myJWT '+token,
-                    user: {
-                        id: user._id,
-                        email: user.email
-                    }
+                    token: 'JWT '+token,
+                    id: user._id,
+                    name: user.name,
+                    role: user.role
                 });
             } else {
-                return res.json({
-                    success: false, msg: 'Invalid credentials!'
-                });
+                return res.sendStatus(403);
             }
         });
     });
