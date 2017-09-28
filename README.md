@@ -14,35 +14,21 @@ I updgraded to the version below which I am using at the momment until v.5 relea
 - angular-v4.3.1
 - angular/cli-v1.4.3
 
-# Install Node use NPM
-# Install Mongodb
+This project uses the MEAN stack:
+MongoDB
+Express
+Angular
+Node
 
-# Steps I took
-I downloaded the starter template.
-- CD to folder 
-- $ npm install
-- then npm installed --save the following to my packages:
-
-other dependencies and versions I added:
-- "mongodb": "^2.2.31"
-- "mongoose": "^4.11.11"
-- "express": "^4.15.4"
-- "passport": "^0.4.0"
-- "passport-jwt": "^3.0.0"
-- "jsonwebtoken": "^8.0.1"
-- "bcryptjs": "^2.4.3"
-- "body-parser": "^1.18.1"
-- "core-js": "^2.4.1"
-- "cors": "^2.8.4"
-
-# output Angular Application to `dist` folder
-$ ng build --dev
-# started mongodb server in another tab
-$ mongod
-# started mongoose client in another tab
-$ mongo
-# started the frontend application on 'http://localhost:3000/'
-$ node server (to start server) or $ nodemon (if you have it installed).
-# Also you can make changes on the frontend application on 'http://localhost:4200/'
-$ ng serve  
-# you have to rebuild the dist folder when u make changes to Angulars frontend 
+Other tools used:
+Mongoose
+Angular CLI
+Body-Parser
+CORS
+Bootstrap
+Font Awesome
+JSON Web Token
+Passport
+Passport-JWT
+Bcrypt
+Angular 2 JWT
