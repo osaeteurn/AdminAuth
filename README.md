@@ -2,10 +2,9 @@
 This is a project I'm tinkering around with using SB Admin 4 Template. 
 I am building a Login authentication using the MEAN Stack
 
-This original SB Admin template without a backend authentication at:
-Github: https://github.com/start-angular/SB-Admin-BS4-Angular-4
+The free Admin without a backend authentication can be downloaded at: [SB Admin template](https://github.com/start-angular/SB-Admin-BS4-Angular-4) 
 
-This starter project was also generated with [Angular CLI](https://github.com/angular/angular-cli) in the starter template.
+This starter project was also generated with [Angular CLI](https://github.com/angular/angular-cli) 
 
 I will upgrade to Angular's v.5 when it releases:
 
