@@ -8,21 +8,21 @@ This starter project was also generated with [Angular CLI](https://github.com/an
 
 I will upgrade to Angular's v.5 when it releases:
 
-This project uses the MEAN stack:
-MongoDB
-Express
-Angular
-Node
+This project uses the **MEAN** stack:
+* MongoDB 
+* Express
+* Angular
+* Node
 
 Other tools used:
-Mongoose
-Angular CLI
-Body-Parser
-CORS
-Bootstrap
-Font Awesome
-JSON Web Token
-Passport
-Passport-JWT
-Bcrypt
-Angular 2 JWT
+* Mongoose
+* Angular CLI
+* Body-Parser
+* CORS
+* Bootstrap
+* Font Awesome
+* JSON Web Token
+* Passport
+* Passport-JWT
+* Bcrypt
+* Angular 2 JWT
