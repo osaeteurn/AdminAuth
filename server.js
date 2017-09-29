@@ -52,7 +52,7 @@ app.set('port', port);
 
 
 
-app.use('/users', users)
+app.use('/users', users);
 
 // Main Route
 app.use('/', (req, res) =>{

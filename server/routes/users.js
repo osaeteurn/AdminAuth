@@ -11,14 +11,13 @@ router.post('/signup', (req, res, next) => {
     let newUser = new User({
         name: req.body.name,
         email: req.body.email,
-        password: req.body.password,
-        role: req.body.role
+        password: req.body.password
     });
-    User.addUser(newUser, (err, user) => { 
+    User.addUser(newUser, (err, user) => {
         if(err){
-            res.json({success: false, msg: 'Error. User registration failed'});
+            res.json({success: false, message: 'User registration failed'});
         } else {
-            res.json({success: true, msg: 'Success. User registered'});
+            res.json({success: true, message: 'Success. User registered'});
         }
     });
 });
@@ -31,7 +30,7 @@ router.post('/authenticate', (req, res, next) => {
     User.getUserByEmail(email, (err, user) => {
         if(err) throw err;
         if(!user){
-            return res.sendStatus(403);
+            return res.sendStatus(404);
         }
 
         User.comparePassword(password, user.password, (err, isMatch) => {
@@ -51,10 +50,8 @@ router.post('/authenticate', (req, res, next) => {
    
                 // response on the frontend sending back user token + object
                 res.json({
-                    token: 'JWT '+token,
+                    token: token,
                     id: user._id,
-                    name: user.name,
-                    role: user.role
                 });
             } else {
                 return res.sendStatus(403);

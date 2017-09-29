@@ -25,8 +25,10 @@ export class AuthSignupService {
   signupUser(user){
    return this.http.post('http://localhost:3000/users/signup', user)
    .subscribe(data => {
-      console.log(data);
       error => console.log(error);
+      console.log(data);
+      localStorage.removeItem('isLoggedin'); 
+      this.router.navigate(['login']);
     })
   }
 

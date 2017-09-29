@@ -13,7 +13,8 @@ const UserSchema = mongoose.Schema({
     },
     email: {
         type: String,
-        required: true
+        required: true,    
+        unique: true 
     },
     password: {
         type: String,
@@ -22,7 +23,25 @@ const UserSchema = mongoose.Schema({
     role: {
         type: String
     },
-
+    // social media 
+    facebook         : {
+        id           : String,
+        token        : String,
+        email        : String,
+        name         : String
+    },
+    twitter          : {
+        id           : String,
+        token        : String,
+        displayName  : String,
+        username     : String
+    },
+    google           : {
+        id           : String,
+        token        : String,
+        email        : String,
+        name         : String
+    }
 });
 
 // Mongoose User Model
@@ -43,7 +62,10 @@ module.exports.addUser = (newUser, callback) => {
     //hashing password with bcrypt
     bcrypt.genSalt(10, (err, salt) => {
         bcrypt.hash(newUser.password, salt, (err, hash) => {
-            //if(err) throw err;
+            if(err)  {
+                return res.status(400).send({message: err});
+            } 
+
             newUser.password = hash;
             newUser.save(callback);
         });

@@ -814,10 +814,13 @@ var AuthSignupService = (function () {
         }
     }
     AuthSignupService.prototype.signupUser = function (user) {
+        var _this = this;
         return this.http.post('http://localhost:3000/users/signup', user)
             .subscribe(function (data) {
-            console.log(data);
             (function (error) { return console.log(error); });
+            console.log(data);
+            localStorage.removeItem('isLoggedin');
+            _this.router.navigate(['login']);
         });
     };
     AuthSignupService.prototype.authenticateUser = function (user) {
